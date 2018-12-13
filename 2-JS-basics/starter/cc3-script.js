@@ -1,37 +1,65 @@
-// john
-var johnAvg = (89 + 120 + 103) / 3;
-var johnRoundedAvg = Math.round(johnAvg);
-// Mark
-var markAvg = (89 + 122 + 103) / 3;
-var markRoundedAvg = Math.round(markAvg);
-// Mary
-var maryAvg = (89 + 122 + 103) / 3;
-var maryRoundedAvg = Math.round(maryAvg);
+/*
 
+20% Tip bill < 50
+15% Tip bill < 200
+10% Tip bill > 200
 
-// John vs Mark
-if ( johnRoundedAvg < markRoundedAvg ) {
-  console.log('Mark wins ' + markRoundedAvg + ' - ' + johnRoundedAvg);
-} else if ( johnRoundedAvg > markRoundedAvg ) {
-  console.log('John wins ' + johnRoundedAvg + ' - ' + markRoundedAvg);
-} else {
-  console.log('John and Mark have tied at ' + johnRoundedAvg + ' - ' + markRoundedAvg);
+.2 * 50
+
+array with the tip amonts for each bill
+
+array with total bill (bill + tip)
+
+*/
+var restaurants = [124, 48, 268];
+
+// calculate the tips
+
+var tips = [];
+
+var calculateTip = function(bill) {
+  if (bill) {console.log(bill < 50);}
+
+  if (bill < 50) {
+    tipPercent = .2;
+    tip = tipPercent * bill;
+    // console.log(tip, tipPercent);
+    return tip;
+  } else if (bill >= 50 && bill < 200) {
+      tipPercent = .15;
+      tip = tipPercent * bill;
+      // console.log(tip, tipPercent);
+      return tip;
+  } else {
+      tipPercent = .1;
+      tip = tipPercent * bill;
+      // console.log(tip, tipPercent);
+      return tip;
+  }
+
+}
+var calcTotalBill = function(tip, bill) {
+  totalBill = tip + bill;
+  console.log(bill + tip);
+  // console.log(tip, bill, totalBill);
+  return totalBill;
 }
 
+var firstMeal = calculateTip(restaurants[0]);
+var secondMeal = calculateTip(restaurants[1]);
+var thirdMeal = calculateTip(restaurants[2]);
+tips.push(firstMeal.toFixed(2));
+tips.push(secondMeal.toFixed(2));
+tips.push(thirdMeal.toFixed(2));
+console.log(tips);
 
-// John vs Mark vs Mary
-if ( johnRoundedAvg > markRoundedAvg && johnRoundedAvg > maryRoundedAvg) {
-  console.log('John wins with the high score of ' + johnRoundedAvg);
-} else if ( markRoundedAvg > johnRoundedAvg && markRoundedAvg > maryRoundedAvg ) {
-  console.log('Mark wins with the high score of ' + markRoundedAvg);
-} else if ( maryRoundedAvg > johnRoundedAvg && maryRoundedAvg > markRoundedAvg ) {
-  console.log('Mary wins with the high score of ' + maryRoundedAvg);
-} else if ( maryRoundedAvg < johnRoundedAvg && maryRoundedAvg < markRoundedAvg ) {
-    console.log('John and Mark tied with a score of ' + maryRoundedAvg);
-} else if ( johnRoundedAvg < maryRoundedAvg && johnRoundedAvg < markRoundedAvg ) {
-    console.log('Mark and Mary tied with a score of ' + maryRoundedAvg);
-} else if ( markRoundedAvg < johnRoundedAvg && markRoundedAvg < maryRoundedAvg ) {
-    console.log('John and Mary tied with a score of ' + johnRoundedAvg);
-} else {
-  console.log('John, Mary, and Mark have all tied with a score of ' + johnRoundedAvg + ' ' + markRoundedAvg + ' ' + maryRoundedAvg);
-}
+// totalBill array
+var firstBill = calcTotalBill(firstMeal, restaurants[0]);
+var secondBill = calcTotalBill(secondMeal, restaurants[1]);
+var thirdBill = calcTotalBill(thirdMeal, restaurants[2]);
+
+totalBills = [];
+totalBills.push(firstBill.toFixed(2));
+totalBills.push(secondBill.toFixed(2));
+totalBills.push(thirdBill.toFixed(2));
+console.log(totalBills);
