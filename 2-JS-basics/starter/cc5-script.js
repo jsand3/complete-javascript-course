@@ -29,10 +29,10 @@ var familyMealsJohn = {
         tipAmount = bill * tipPercentage;
 
       }
-      console.log(tipAmount);
+
       totalCost = tipAmount + bill;
 
-      console.log(totalCost);
+
       arrayTip[i] = tipAmount;
       arrayTotalCost[i] = totalCost;
       // arrayTip.push(tipAmount);
@@ -55,12 +55,12 @@ familyMealsJohn.calcTip();
 */
 var arrayTip = []; //
 var arrayTotalCost = [];
-var familyMealsJohn = {
+var familyMealsMark = {
 
   bills: [77, 375, 110, 45],
   calcTip: function() {
-    for (var i = 0; i < familyMealsJohn.bills.length; i++) {
-      var bill = familyMealsJohn.bills[i];
+    for (var i = 0; i < familyMealsMark.bills.length; i++) {
+      var bill = familyMealsMark.bills[i];
       var tipPercentage = .2;
       var tipAmount = '';
       var totalCost = '';
@@ -77,22 +77,34 @@ var familyMealsJohn = {
         tipAmount = bill * tipPercentage;
 
       }
-      console.log(tipAmount);
+
       totalCost = tipAmount + bill;
 
-      console.log(totalCost);
       arrayTip[i] = tipAmount;
       arrayTotalCost[i] = totalCost;
+
+      this.tips = arrayTip;
+      this.eachMealCost = arrayTotalCost;
       // arrayTip.push(tipAmount);
       // arrayTotalCost.push(totalCost);
-
     }
+
+    for (a = 0; a < arrayTotalCost.length; a++) {
+      console.log(familyMealsMark.eachMealCost[a]);
+      // var mealTotalCost += arrayTotalCost[a];
+      // console.log("The running total is : " + mealTotalCost);
+    }
+    // var averageCostPerMeal = mealTotalCost;
+
+    console.log('%c Mark\'s Numbers','font-size: 20px;');
     console.log("Tip Array");
     console.log(arrayTip);
 
     console.log("Total Cost Array");
-    console.log(arrayTip);
+    console.log(arrayTotalCost);
+    // console.log("Average Cost Per Meal :" + averageCostPerMeal);
   }
 
 }
-familyMealsJohn.calcTip();
+familyMealsMark.calcTip();
+console.log(familyMealsMark);
